@@ -5,97 +5,355 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MotoDoc — Privacy Policy</title>
 <style>
-  :root { color-scheme: light dark; }
-  body { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px;
+  :root { color-scheme: light dark; --mut:#777; --bd:#d9d9de; --acc:#f97316; }
+  @media (prefers-color-scheme: dark) { :root { --mut:#9a9a9a; --bd:#33343a; } }
+  * { box-sizing: border-box; }
+  body { max-width: 760px; margin: 0 auto; padding: 28px 20px 72px;
          font: 16px/1.65 -apple-system, "Segoe UI", Roboto, sans-serif; }
-  h1 { font-size: 28px; margin-bottom: 4px; }
-  h2 { font-size: 19px; margin-top: 32px; }
-  .updated { color: #777; font-size: 14px; margin-top: 0; }
+  h1 { font-size: 27px; margin: 0 0 4px; }
+  h2 { font-size: 19px; margin-top: 30px; }
+  .updated { color: var(--mut); font-size: 14px; margin-top: 0; }
   ul { padding-left: 22px; }
-  code { background: rgba(127,127,127,.15); padding: 1px 5px; border-radius: 4px; }
+  .tabs { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:26px; }
+  .tab { font:inherit; font-size:14px; padding:7px 13px; border-radius:999px;
+         border:1px solid var(--bd); background:transparent; color:inherit; cursor:pointer; }
+  .tab.active { border-color:var(--acc); color:var(--acc); font-weight:600; }
+  .pane { display:none; } .pane.active { display:block; }
+  a { color: var(--acc); }
+  footer { margin-top:40px; color:var(--mut); font-size:13px; }
 </style>
 </head>
 <body>
-
-<h1>Privacy Policy — MotoDoc</h1>
-<p class="updated">Last updated: 1 September 2026</p>
-
-<p>MotoDoc (“the app”) is a motorcycle maintenance tracker. This policy
-explains what the app does and does not do with your information.
-Package name: <code>com.alexde.motodoc</code>.</p>
-
-<h2>Short version</h2>
-<p>Everything you enter — motorcycles, service records, insurance policies,
-refuelling entries and attached policy files — is stored <strong>only on your
-device</strong>. There is no account, no server of ours, and no analytics or
-advertising SDK in the app. We cannot see your data.</p>
-
-<h2>Data stored on your device</h2>
-<ul>
-  <li>Motorcycle details: make, model, year, mileage and optional VIN.</li>
-  <li>Service records: type, date, mileage, workshop, cost, notes.</li>
-  <li>Insurance policies: type, company, policy number, dates, cost and any
-      photo or PDF you attach.</li>
-  <li>Refuelling entries: litres, price per litre, mileage, date.</li>
-  <li>App settings and your subscription status.</li>
-</ul>
-<p>This data lives in a local database inside the app’s private storage.
-It is removed when you uninstall the app. The app does not create backups
-on our side; any backup is the one your phone or Google account makes.</p>
-
-<h2>Data we collect</h2>
-<p>None. The app has no user accounts, no sign-in, no analytics, no crash
-reporting service and no advertising.</p>
-
-<h2>Permissions</h2>
-<ul>
-  <li><strong>Notifications</strong> — to warn you when a service item becomes
-      overdue or an insurance policy expires. Notifications are generated on
-      your device; nothing is sent to a server.</li>
-  <li><strong>Photos and files</strong> — only when you choose to attach a
-      photo or PDF of an insurance policy. The app copies the file you pick
-      into its own storage and reads nothing else.</li>
-  <li><strong>Internet</strong> — used for two things only: the Google Play
-      billing check for your subscription, and loading the small list of
-      partner links shown in the app.</li>
-</ul>
-
-<h2>Subscriptions and payments</h2>
-<p>MotoDoc is sold as an auto-renewing subscription with a 3-day free trial,
-billed through Google Play. Payments, card details and billing history are
-handled entirely by Google — the app never sees or stores payment data. It
-only asks Google Play whether your subscription is currently active and
-caches that answer locally so the app works offline. Manage or cancel your
-subscription in the Google Play app under Payments &amp; subscriptions.</p>
-
-<h2>Third parties</h2>
-<ul>
-  <li><strong>Google Play Billing</strong> — processes the subscription. See
-      Google’s privacy policy at
-      <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</li>
-  <li><strong>Partner links</strong> — the app downloads a short list of links
-      (workshops, insurers, fuel services) to display as buttons. Opening one
-      hands you over to your browser and to that website’s own policy. No
-      information about you is sent when the list is downloaded.</li>
-</ul>
-<p>We do not sell, share or transfer your data to anyone, because we do not
-have it.</p>
-
-<h2>Children</h2>
-<p>The app is not directed at children under 13 and collects no data from
-anyone.</p>
-
-<h2>Deleting your data</h2>
-<p>Delete individual records inside the app, or uninstall the app to remove
-everything it stored. Since nothing is kept on our side, there is nothing
-further to request.</p>
-
-<h2>Changes</h2>
-<p>If this policy changes, the new version will be published at this address
-with an updated date.</p>
-
-<h2>Contact</h2>
-<p>Questions about this policy: <a href="mailto:o9753241@gmail.com">o9753241@gmail.com</a></p>
-
+<div class="tabs"><button class="tab active" data-lang="en">English</button><button class="tab" data-lang="ru">Русский</button><button class="tab" data-lang="de">Deutsch</button><button class="tab" data-lang="es">Español</button><button class="tab" data-lang="fr">Français</button><button class="tab" data-lang="pt">Português</button><button class="tab" data-lang="it">Italiano</button><button class="tab" data-lang="ja">日本語</button><button class="tab" data-lang="pl">Polski</button></div>
+<section class="pane active" id="p-en" lang="en">
+  <h1>Privacy Policy — MotoDoc</h1>
+  <p class="updated">Last updated: 24 September 2026</p>
+  <h2>Short version</h2>
+  <p>Everything you enter — motorcycles and their photos, service records, insurance policies and attachments, refuelling entries — is stored only on your device. There is no account, no server of ours, no analytics and no advertising. We cannot see your data.</p>
+  <h2>What is stored on your device</h2>
+  <ul>
+    <li>Motorcycle details: make, model, year, mileage, optional VIN and a photo you choose.</li>
+    <li>Service records: type, date, mileage, workshop, cost, notes.</li>
+    <li>Insurance policies: type, company, number, dates, cost and any photo or PDF you attach.</li>
+    <li>Refuelling entries: litres, price per litre, mileage, date.</li>
+    <li>App settings and your subscription status.</li>
+  </ul>
+  <p>This data lives in a local database inside the app’s private storage and is removed when you uninstall the app.</p>
+  <h2>What we collect</h2>
+  <p>Nothing. The app has no user accounts, no sign-in, no analytics, no crash reporting and no advertising.</p>
+  <h2>Permissions</h2>
+  <ul>
+    <li>Notifications — to warn you when a service item is overdue or a policy expires. They are generated on your device.</li>
+    <li>Photos and camera — only when you choose to add a photo of your motorcycle or an insurance policy. The file is copied into the app’s own storage.</li>
+  </ul>
+  <h2>Subscription and payments</h2>
+  <p>MotoDoc is an auto-renewing subscription with a 3-day free trial, billed by the App Store on iOS and by Google Play on Android. Payments, card details and billing history are handled entirely by Apple or Google — the app never sees or stores payment data. It only asks the store whether your subscription is active and caches that answer locally so the app works offline. Manage or cancel it in your Apple ID settings or in Google Play under Payments &amp; subscriptions.</p>
+  <h2>Third parties</h2>
+  <p>Only the store that processes your subscription: Apple (App Store) or Google (Google Play). We do not sell, share or transfer your data to anyone, because we do not have it.</p>
+  <h2>Children</h2>
+  <p>The app is not directed at children under 13 and collects no data from anyone.</p>
+  <h2>Deleting your data</h2>
+  <p>Delete individual records inside the app, or uninstall the app to remove everything it stored. Nothing is kept on our side, so there is nothing further to request.</p>
+  <h2>Changes</h2>
+  <p>If this policy changes, the new version will be published at this address with an updated date.</p>
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:o9753241@gmail.com">o9753241@gmail.com</a></p>
+</section>
+<section class="pane" id="p-ru" lang="ru">
+  <h1>Политика конфиденциальности — MotoDoc</h1>
+  <p class="updated">Обновлено: 24 сентября 2026</p>
+  <h2>Коротко</h2>
+  <p>Всё, что вы вводите — мотоциклы и их фотографии, записи об обслуживании, страховые полисы и вложения, заправки — хранится только на вашем устройстве. Нет аккаунтов, нет нашего сервера, нет аналитики и нет рекламы. Мы не видим ваши данные.</p>
+  <h2>Что хранится на устройстве</h2>
+  <ul>
+    <li>Мотоцикл: марка, модель, год, пробег, VIN при желании и выбранная вами фотография.</li>
+    <li>Обслуживание: вид работы, дата, пробег, сервис, стоимость, заметки.</li>
+    <li>Страховки: тип, компания, номер, даты, стоимость и приложенные фото или PDF.</li>
+    <li>Заправки: литры, цена за литр, пробег, дата.</li>
+    <li>Настройки приложения и статус подписки.</li>
+  </ul>
+  <p>Данные лежат в локальной базе во внутреннем хранилище приложения и удаляются вместе с ним.</p>
+  <h2>Что мы собираем</h2>
+  <p>Ничего. В приложении нет учётных записей, входа, аналитики, сбора отчётов об ошибках и рекламы.</p>
+  <h2>Разрешения</h2>
+  <ul>
+    <li>Уведомления — чтобы предупредить о просроченном ТО или истекающем полисе. Формируются на вашем устройстве.</li>
+    <li>Фото и камера — только когда вы сами добавляете снимок мотоцикла или полиса. Файл копируется во внутреннее хранилище приложения.</li>
+  </ul>
+  <h2>Подписка и оплата</h2>
+  <p>MotoDoc продаётся по автопродлеваемой подписке с трёхдневным пробным периодом. Оплату проводит App Store на iOS и Google Play на Android. Платежи, данные карт и история списаний полностью на стороне Apple или Google — приложение их не видит и не хранит. Оно лишь спрашивает у магазина, активна ли подписка, и запоминает ответ локально, чтобы работать без интернета. Управлять подпиской и отменить её можно в настройках Apple ID или в Google Play в разделе «Платежи и подписки».</p>
+  <h2>Третьи стороны</h2>
+  <p>Только магазин, обрабатывающий подписку: Apple (App Store) или Google (Google Play). Мы не продаём, не передаём и не раскрываем ваши данные никому, потому что их у нас нет.</p>
+  <h2>Дети</h2>
+  <p>Приложение не предназначено для детей младше 13 лет и не собирает данные ни о ком.</p>
+  <h2>Удаление данных</h2>
+  <p>Удаляйте отдельные записи внутри приложения или удалите само приложение — вместе с ним пропадёт всё, что оно хранило. На нашей стороне ничего нет, поэтому запрашивать удаление не нужно.</p>
+  <h2>Изменения</h2>
+  <p>Если политика изменится, новая редакция появится по этому же адресу с обновлённой датой.</p>
+  <h2>Связь</h2>
+  <p>Вопросы по этой политике: <a href="mailto:o9753241@gmail.com">o9753241@gmail.com</a></p>
+</section>
+<section class="pane" id="p-de" lang="de">
+  <h1>Datenschutzerklärung — MotoDoc</h1>
+  <p class="updated">Zuletzt aktualisiert: 24. September 2026</p>
+  <h2>Kurzfassung</h2>
+  <p>Alles, was Sie eingeben — Motorräder und ihre Fotos, Wartungseinträge, Versicherungspolicen mit Anhängen und Tankvorgänge — wird ausschließlich auf Ihrem Gerät gespeichert. Es gibt kein Konto, keinen Server von uns, keine Analyse und keine Werbung. Wir sehen Ihre Daten nicht.</p>
+  <h2>Was auf Ihrem Gerät gespeichert wird</h2>
+  <ul>
+    <li>Motorrad: Marke, Modell, Baujahr, Kilometerstand, optional VIN und ein von Ihnen gewähltes Foto.</li>
+    <li>Wartung: Art, Datum, Kilometerstand, Werkstatt, Kosten, Notizen.</li>
+    <li>Versicherungen: Art, Gesellschaft, Nummer, Zeitraum, Kosten sowie angehängte Fotos oder PDFs.</li>
+    <li>Tankvorgänge: Liter, Preis pro Liter, Kilometerstand, Datum.</li>
+    <li>App-Einstellungen und Ihr Abo-Status.</li>
+  </ul>
+  <p>Diese Daten liegen in einer lokalen Datenbank im privaten Speicher der App und werden mit der Deinstallation entfernt.</p>
+  <h2>Was wir erheben</h2>
+  <p>Nichts. Die App hat keine Benutzerkonten, keine Anmeldung, keine Analyse, keine Absturzberichte und keine Werbung.</p>
+  <h2>Berechtigungen</h2>
+  <ul>
+    <li>Mitteilungen — um Sie bei überfälliger Wartung oder ablaufender Police zu warnen. Sie entstehen auf Ihrem Gerät.</li>
+    <li>Fotos und Kamera — nur wenn Sie selbst ein Foto Ihres Motorrads oder einer Police hinzufügen. Die Datei wird in den Speicher der App kopiert.</li>
+  </ul>
+  <h2>Abo und Zahlung</h2>
+  <p>MotoDoc ist ein automatisch verlängertes Abo mit drei Tagen kostenlos. Die Abrechnung übernimmt der App Store unter iOS und Google Play unter Android. Zahlungen, Kartendaten und Rechnungsverlauf liegen vollständig bei Apple oder Google — die App sieht und speichert sie nie. Sie fragt nur ab, ob Ihr Abo aktiv ist, und merkt sich die Antwort lokal, damit sie offline funktioniert. Verwalten oder kündigen können Sie in den Einstellungen Ihrer Apple-ID oder in Google Play.</p>
+  <h2>Dritte</h2>
+  <p>Nur der Store, der Ihr Abo abwickelt: Apple (App Store) oder Google (Google Play). Wir verkaufen, teilen oder übertragen Ihre Daten an niemanden, weil wir sie nicht haben.</p>
+  <h2>Kinder</h2>
+  <p>Die App richtet sich nicht an Kinder unter 13 Jahren und erhebt von niemandem Daten.</p>
+  <h2>Daten löschen</h2>
+  <p>Löschen Sie einzelne Einträge in der App oder deinstallieren Sie die App, um alles Gespeicherte zu entfernen. Bei uns liegt nichts, daher gibt es nichts weiter zu beantragen.</p>
+  <h2>Änderungen</h2>
+  <p>Ändert sich diese Erklärung, erscheint die neue Fassung unter derselben Adresse mit aktualisiertem Datum.</p>
+  <h2>Kontakt</h2>
+  <p>Fragen zu dieser Erklärung: <a href="mailto:o9753241@gmail.com">o9753241@gmail.com</a></p>
+</section>
+<section class="pane" id="p-es" lang="es">
+  <h1>Política de privacidad — MotoDoc</h1>
+  <p class="updated">Última actualización: 24 de septiembre de 2026</p>
+  <h2>En resumen</h2>
+  <p>Todo lo que introduces — motocicletas y sus fotos, registros de mantenimiento, pólizas de seguro con adjuntos y repostajes — se guarda únicamente en tu dispositivo. No hay cuenta, ni servidor nuestro, ni analítica, ni publicidad. No podemos ver tus datos.</p>
+  <h2>Qué se guarda en tu dispositivo</h2>
+  <ul>
+    <li>Moto: marca, modelo, año, kilometraje, VIN opcional y la foto que elijas.</li>
+    <li>Mantenimiento: tipo, fecha, kilometraje, taller, coste, notas.</li>
+    <li>Seguros: tipo, compañía, número, fechas, coste y la foto o PDF que adjuntes.</li>
+    <li>Repostajes: litros, precio por litro, kilometraje, fecha.</li>
+    <li>Ajustes de la app y el estado de tu suscripción.</li>
+  </ul>
+  <p>Estos datos residen en una base local dentro del almacenamiento privado de la app y se eliminan al desinstalarla.</p>
+  <h2>Qué recopilamos</h2>
+  <p>Nada. La app no tiene cuentas, ni inicio de sesión, ni analítica, ni informes de fallos, ni publicidad.</p>
+  <h2>Permisos</h2>
+  <ul>
+    <li>Notificaciones — para avisarte de un mantenimiento vencido o de una póliza que caduca. Se generan en tu dispositivo.</li>
+    <li>Fotos y cámara — solo cuando tú añades una foto de tu moto o de una póliza. El archivo se copia al almacenamiento de la app.</li>
+  </ul>
+  <h2>Suscripción y pagos</h2>
+  <p>MotoDoc se vende como suscripción de renovación automática con 3 días de prueba gratuita, cobrada por App Store en iOS y por Google Play en Android. Los pagos, los datos de la tarjeta y el historial de cobros los gestionan íntegramente Apple o Google: la app nunca los ve ni los guarda. Solo pregunta a la tienda si tu suscripción está activa y guarda esa respuesta en local para funcionar sin conexión. Puedes gestionarla o cancelarla en los ajustes de tu Apple ID o en Google Play.</p>
+  <h2>Terceros</h2>
+  <p>Solo la tienda que procesa tu suscripción: Apple (App Store) o Google (Google Play). No vendemos, compartimos ni transferimos tus datos a nadie, porque no los tenemos.</p>
+  <h2>Menores</h2>
+  <p>La app no está dirigida a menores de 13 años y no recopila datos de nadie.</p>
+  <h2>Eliminar tus datos</h2>
+  <p>Borra registros concretos dentro de la app, o desinstálala para eliminar todo lo que guardó. En nuestro lado no queda nada, así que no hay nada más que solicitar.</p>
+  <h2>Cambios</h2>
+  <p>Si esta política cambia, la nueva versión se publicará en esta misma dirección con la fecha actualizada.</p>
+  <h2>Contacto</h2>
+  <p>Dudas sobre esta política: <a href="mailto:o9753241@gmail.com">o9753241@gmail.com</a></p>
+</section>
+<section class="pane" id="p-fr" lang="fr">
+  <h1>Politique de confidentialité — MotoDoc</h1>
+  <p class="updated">Dernière mise à jour: 24 septembre 2026</p>
+  <h2>En bref</h2>
+  <p>Tout ce que vous saisissez — motos et leurs photos, entretiens, contrats d’assurance et pièces jointes, pleins de carburant — est enregistré uniquement sur votre appareil. Pas de compte, pas de serveur chez nous, pas d’analyse, pas de publicité. Nous ne voyons pas vos données.</p>
+  <h2>Ce qui est enregistré sur votre appareil</h2>
+  <ul>
+    <li>Moto : marque, modèle, année, kilométrage, VIN facultatif et la photo que vous choisissez.</li>
+    <li>Entretiens : type, date, kilométrage, atelier, coût, notes.</li>
+    <li>Assurances : type, compagnie, numéro, dates, coût et la photo ou le PDF joint.</li>
+    <li>Pleins : litres, prix au litre, kilométrage, date.</li>
+    <li>Réglages de l’app et statut de votre abonnement.</li>
+  </ul>
+  <p>Ces données résident dans une base locale, dans le stockage privé de l’app, et disparaissent à la désinstallation.</p>
+  <h2>Ce que nous collectons</h2>
+  <p>Rien. L’app n’a ni compte, ni connexion, ni analyse, ni rapport de plantage, ni publicité.</p>
+  <h2>Autorisations</h2>
+  <ul>
+    <li>Notifications — pour vous alerter d’un entretien en retard ou d’un contrat qui expire. Elles sont produites sur votre appareil.</li>
+    <li>Photos et appareil photo — seulement lorsque vous ajoutez vous-même une photo de votre moto ou d’un contrat. Le fichier est copié dans le stockage de l’app.</li>
+  </ul>
+  <h2>Abonnement et paiement</h2>
+  <p>MotoDoc est un abonnement à renouvellement automatique avec 3 jours d’essai gratuit, facturé par l’App Store sur iOS et par Google Play sur Android. Les paiements, les données bancaires et l’historique de facturation sont entièrement gérés par Apple ou Google : l’app ne les voit ni ne les conserve. Elle demande seulement à la boutique si votre abonnement est actif et garde cette réponse en local pour fonctionner hors ligne. Gérez ou résiliez dans les réglages de votre identifiant Apple ou dans Google Play.</p>
+  <h2>Tiers</h2>
+  <p>Uniquement la boutique qui traite votre abonnement : Apple (App Store) ou Google (Google Play). Nous ne vendons, ne partageons et ne transférons vos données à personne, car nous ne les avons pas.</p>
+  <h2>Enfants</h2>
+  <p>L’app ne s’adresse pas aux enfants de moins de 13 ans et ne collecte les données de personne.</p>
+  <h2>Supprimer vos données</h2>
+  <p>Supprimez des entrées dans l’app, ou désinstallez-la pour effacer tout ce qu’elle a enregistré. Rien n’est conservé de notre côté, il n’y a donc rien d’autre à demander.</p>
+  <h2>Modifications</h2>
+  <p>Si cette politique change, la nouvelle version sera publiée à cette même adresse avec une date mise à jour.</p>
+  <h2>Contact</h2>
+  <p>Questions sur cette politique : <a href="mailto:o9753241@gmail.com">o9753241@gmail.com</a></p>
+</section>
+<section class="pane" id="p-pt" lang="pt">
+  <h1>Política de Privacidade — MotoDoc</h1>
+  <p class="updated">Última atualização: 24 de setembro de 2026</p>
+  <h2>Resumo</h2>
+  <p>Tudo o que você insere — motos e suas fotos, registros de manutenção, apólices de seguro com anexos e abastecimentos — fica guardado apenas no seu dispositivo. Não há conta, não há servidor nosso, não há análise e não há publicidade. Não conseguimos ver seus dados.</p>
+  <h2>O que fica guardado no seu dispositivo</h2>
+  <ul>
+    <li>Moto: marca, modelo, ano, quilometragem, chassi opcional e a foto que você escolher.</li>
+    <li>Manutenção: tipo, data, quilometragem, oficina, custo, observações.</li>
+    <li>Seguros: tipo, seguradora, número, datas, custo e a foto ou PDF anexados.</li>
+    <li>Abastecimentos: litros, preço por litro, quilometragem, data.</li>
+    <li>Configurações do app e o status da sua assinatura.</li>
+  </ul>
+  <p>Esses dados ficam num banco local, no armazenamento privado do app, e somem quando você o desinstala.</p>
+  <h2>O que coletamos</h2>
+  <p>Nada. O app não tem contas, login, análise, relatórios de falhas nem publicidade.</p>
+  <h2>Permissões</h2>
+  <ul>
+    <li>Notificações — para avisar sobre manutenção vencida ou apólice a expirar. São geradas no seu dispositivo.</li>
+    <li>Fotos e câmera — apenas quando você adiciona uma foto da sua moto ou de uma apólice. O arquivo é copiado para o armazenamento do app.</li>
+  </ul>
+  <h2>Assinatura e pagamento</h2>
+  <p>O MotoDoc é uma assinatura com renovação automática e 3 dias grátis, cobrada pela App Store no iOS e pelo Google Play no Android. Pagamentos, dados do cartão e histórico de cobrança ficam inteiramente com a Apple ou o Google — o app nunca os vê nem os guarda. Ele apenas pergunta à loja se a assinatura está ativa e guarda essa resposta localmente para funcionar offline. Gerencie ou cancele nos ajustes do seu ID Apple ou no Google Play.</p>
+  <h2>Terceiros</h2>
+  <p>Apenas a loja que processa sua assinatura: Apple (App Store) ou Google (Google Play). Não vendemos, compartilhamos nem transferimos seus dados a ninguém, porque não os temos.</p>
+  <h2>Crianças</h2>
+  <p>O app não é direcionado a crianças menores de 13 anos e não coleta dados de ninguém.</p>
+  <h2>Excluir seus dados</h2>
+  <p>Apague registros dentro do app, ou desinstale-o para remover tudo o que ele guardou. Nada fica do nosso lado, então não há mais nada a solicitar.</p>
+  <h2>Alterações</h2>
+  <p>Se esta política mudar, a nova versão será publicada neste mesmo endereço com a data atualizada.</p>
+  <h2>Contato</h2>
+  <p>Dúvidas sobre esta política: <a href="mailto:o9753241@gmail.com">o9753241@gmail.com</a></p>
+</section>
+<section class="pane" id="p-it" lang="it">
+  <h1>Informativa sulla privacy — MotoDoc</h1>
+  <p class="updated">Ultimo aggiornamento: 24 settembre 2026</p>
+  <h2>In breve</h2>
+  <p>Tutto ciò che inserisci — moto e relative foto, interventi di manutenzione, polizze assicurative con allegati, rifornimenti — resta solo sul tuo dispositivo. Nessun account, nessun nostro server, nessuna analisi, nessuna pubblicità. Non possiamo vedere i tuoi dati.</p>
+  <h2>Cosa viene salvato sul tuo dispositivo</h2>
+  <ul>
+    <li>Moto: marca, modello, anno, chilometraggio, telaio facoltativo e la foto che scegli.</li>
+    <li>Manutenzione: tipo, data, chilometraggio, officina, costo, note.</li>
+    <li>Assicurazioni: tipo, compagnia, numero, date, costo e la foto o il PDF allegati.</li>
+    <li>Rifornimenti: litri, prezzo al litro, chilometraggio, data.</li>
+    <li>Impostazioni dell’app e stato dell’abbonamento.</li>
+  </ul>
+  <p>Questi dati vivono in un database locale nella memoria privata dell’app e vengono rimossi quando la disinstalli.</p>
+  <h2>Cosa raccogliamo</h2>
+  <p>Niente. L’app non ha account, accessi, analisi, rapporti di arresto anomalo né pubblicità.</p>
+  <h2>Autorizzazioni</h2>
+  <ul>
+    <li>Notifiche — per avvisarti di un tagliando scaduto o di una polizza in scadenza. Sono generate sul tuo dispositivo.</li>
+    <li>Foto e fotocamera — solo quando sei tu ad aggiungere una foto della moto o di una polizza. Il file viene copiato nella memoria dell’app.</li>
+  </ul>
+  <h2>Abbonamento e pagamenti</h2>
+  <p>MotoDoc è un abbonamento a rinnovo automatico con 3 giorni di prova gratuita, addebitato dall’App Store su iOS e da Google Play su Android. Pagamenti, dati della carta e cronologia di fatturazione sono gestiti interamente da Apple o Google: l’app non li vede né li conserva. Chiede soltanto allo store se l’abbonamento è attivo e memorizza la risposta in locale per funzionare offline. Puoi gestirlo o disdirlo nelle impostazioni del tuo ID Apple o in Google Play.</p>
+  <h2>Terze parti</h2>
+  <p>Solo lo store che gestisce l’abbonamento: Apple (App Store) o Google (Google Play). Non vendiamo, condividiamo né trasferiamo i tuoi dati a nessuno, perché non li abbiamo.</p>
+  <h2>Minori</h2>
+  <p>L’app non è rivolta ai minori di 13 anni e non raccoglie dati da nessuno.</p>
+  <h2>Eliminare i tuoi dati</h2>
+  <p>Elimina singoli record nell’app, oppure disinstallala per rimuovere tutto ciò che ha salvato. Dalla nostra parte non resta nulla, quindi non c’è altro da richiedere.</p>
+  <h2>Modifiche</h2>
+  <p>Se questa informativa cambia, la nuova versione sarà pubblicata a questo stesso indirizzo con la data aggiornata.</p>
+  <h2>Contatti</h2>
+  <p>Domande su questa informativa: <a href="mailto:o9753241@gmail.com">o9753241@gmail.com</a></p>
+</section>
+<section class="pane" id="p-ja" lang="ja">
+  <h1>プライバシーポリシー — MotoDoc</h1>
+  <p class="updated">最終更新: 2026年9月24日</p>
+  <h2>概要</h2>
+  <p>入力した内容はすべて——バイクとその写真、整備記録、保険証券と添付ファイル、給油記録——お使いの端末の中だけに保存されます。アカウントはなく、当方のサーバーもなく、解析も広告もありません。当方があなたのデータを見ることはできません。</p>
+  <h2>端末に保存される内容</h2>
+  <ul>
+    <li>バイク: メーカー、車種、年式、走行距離、任意の車台番号、選んだ写真。</li>
+    <li>整備記録: 作業内容、日付、走行距離、整備工場、費用、メモ。</li>
+    <li>保険: 種類、会社、証券番号、期間、金額、添付した写真やPDF。</li>
+    <li>給油: 給油量、単価、走行距離、日付。</li>
+    <li>アプリの設定とサブスクリプションの状態。</li>
+  </ul>
+  <p>これらはアプリ専用領域のローカルデータベースに保存され、アプリを削除すると一緒に消えます。</p>
+  <h2>収集する情報</h2>
+  <p>ありません。アカウント、ログイン、解析、クラッシュレポート、広告のいずれもありません。</p>
+  <h2>権限</h2>
+  <ul>
+    <li>通知 — 整備時期の超過や保険の満了をお知らせするため。端末内で生成されます。</li>
+    <li>写真とカメラ — バイクや保険証券の写真をご自身で追加するときだけ使います。選んだファイルはアプリ内にコピーされます。</li>
+  </ul>
+  <h2>サブスクリプションと支払い</h2>
+  <p>MotoDoc は3日間の無料トライアル付き自動更新サブスクリプションです。課金は iOS では App Store、Android では Google Play が行います。支払い、カード情報、請求履歴はすべて Apple または Google が扱い、アプリが見ることも保存することもありません。アプリはサブスクリプションが有効かをストアに尋ね、その結果だけを端末に保存してオフラインでも動作します。管理と解約は Apple ID の設定または Google Play から行えます。</p>
+  <h2>第三者</h2>
+  <p>サブスクリプションを処理するストア（Apple または Google）のみです。当方はあなたのデータを保有していないため、販売・共有・提供のしようがありません。</p>
+  <h2>お子様について</h2>
+  <p>本アプリは13歳未満のお子様を対象としておらず、誰からもデータを収集しません。</p>
+  <h2>データの削除</h2>
+  <p>アプリ内で個々の記録を削除するか、アプリ自体を削除すれば保存内容はすべて消えます。当方側には何も残っていないため、別途の請求は不要です。</p>
+  <h2>変更</h2>
+  <p>本ポリシーを変更した場合は、同じアドレスに日付を更新した新しい版を掲載します。</p>
+  <h2>お問い合わせ</h2>
+  <p>本ポリシーに関するご質問: <a href="mailto:o9753241@gmail.com">o9753241@gmail.com</a></p>
+</section>
+<section class="pane" id="p-pl" lang="pl">
+  <h1>Polityka prywatności — MotoDoc</h1>
+  <p class="updated">Ostatnia aktualizacja: 24 września 2026</p>
+  <h2>W skrócie</h2>
+  <p>Wszystko, co wpisujesz — motocykle i ich zdjęcia, wpisy serwisowe, polisy ubezpieczeniowe z załącznikami, tankowania — zapisuje się wyłącznie na Twoim urządzeniu. Nie ma konta, nie ma naszego serwera, nie ma analityki ani reklam. Nie widzimy Twoich danych.</p>
+  <h2>Co zapisuje się na urządzeniu</h2>
+  <ul>
+    <li>Motocykl: marka, model, rok, przebieg, opcjonalny numer VIN i wybrane przez Ciebie zdjęcie.</li>
+    <li>Serwis: rodzaj, data, przebieg, warsztat, koszt, notatki.</li>
+    <li>Ubezpieczenia: rodzaj, towarzystwo, numer, daty, koszt oraz załączone zdjęcie lub PDF.</li>
+    <li>Tankowania: litry, cena za litr, przebieg, data.</li>
+    <li>Ustawienia aplikacji i status subskrypcji.</li>
+  </ul>
+  <p>Dane znajdują się w lokalnej bazie w prywatnej pamięci aplikacji i znikają wraz z jej odinstalowaniem.</p>
+  <h2>Co zbieramy</h2>
+  <p>Nic. Aplikacja nie ma kont, logowania, analityki, raportów awarii ani reklam.</p>
+  <h2>Uprawnienia</h2>
+  <ul>
+    <li>Powiadomienia — aby ostrzec o zaległym serwisie lub kończącej się polisie. Powstają na Twoim urządzeniu.</li>
+    <li>Zdjęcia i aparat — tylko wtedy, gdy sam dodajesz zdjęcie motocykla lub polisy. Plik jest kopiowany do pamięci aplikacji.</li>
+  </ul>
+  <h2>Subskrypcja i płatności</h2>
+  <p>MotoDoc to subskrypcja odnawiana automatycznie z 3-dniowym okresem próbnym, rozliczana przez App Store na iOS i Google Play na Androidzie. Płatności, dane karty i historia obciążeń są w całości po stronie Apple lub Google — aplikacja ich nie widzi ani nie przechowuje. Pyta jedynie sklep, czy subskrypcja jest aktywna, i zapamiętuje tę odpowiedź lokalnie, aby działać bez internetu. Zarządzać i anulować możesz w ustawieniach Apple ID lub w Google Play.</p>
+  <h2>Podmioty trzecie</h2>
+  <p>Wyłącznie sklep obsługujący subskrypcję: Apple (App Store) lub Google (Google Play). Nie sprzedajemy, nie udostępniamy ani nie przekazujemy Twoich danych nikomu, bo ich nie mamy.</p>
+  <h2>Dzieci</h2>
+  <p>Aplikacja nie jest kierowana do dzieci poniżej 13 roku życia i nie zbiera danych od nikogo.</p>
+  <h2>Usuwanie danych</h2>
+  <p>Usuń pojedyncze wpisy w aplikacji albo odinstaluj ją, aby skasować wszystko, co zapisała. Po naszej stronie nic nie zostaje, więc nie ma o co dodatkowo wnioskować.</p>
+  <h2>Zmiany</h2>
+  <p>Jeśli polityka się zmieni, nowa wersja pojawi się pod tym samym adresem z zaktualizowaną datą.</p>
+  <h2>Kontakt</h2>
+  <p>Pytania dotyczące tej polityki: <a href="mailto:o9753241@gmail.com">o9753241@gmail.com</a></p>
+</section>
+<footer>MotoDoc · com.alexde.motodoc</footer>
+<script>
+  // Открываем язык браузера, если он есть в списке; иначе остаётся английский.
+  (function () {
+    var langs = ["en", "ru", "de", "es", "fr", "pt", "it", "ja", "pl"];
+    function show(code) {
+      document.querySelectorAll('.tab').forEach(function (t) {
+        t.classList.toggle('active', t.dataset.lang === code);
+      });
+      document.querySelectorAll('.pane').forEach(function (p) {
+        p.classList.toggle('active', p.id === 'p-' + code);
+      });
+      document.documentElement.lang = code;
+    }
+    document.querySelectorAll('.tab').forEach(function (t) {
+      t.addEventListener('click', function () { show(t.dataset.lang); });
+    });
+    var pref = navigator.languages || [navigator.language || 'en'];
+    for (var i = 0; i < pref.length; i++) {
+      var code = String(pref[i]).slice(0, 2).toLowerCase();
+      if (langs.indexOf(code) !== -1) { show(code); break; }
+    }
+  })();
+</script>
 </body>
 </html>
